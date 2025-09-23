@@ -5,10 +5,11 @@ const cursorWidth = 50
 
 let ballX = canvas.width/2;
 let ballY = canvas.height - 20;
-let speed = 2;
+let speedX = 2;
+let speedY = -2;
 let rafId;
 
-let cursorX = canvas.width/2  - cursorWidth/2;
+let cursorX = canvas.width/2  - cursorWidth/2; // coordonnée de la raquette
 
 function drawBall(){
     
@@ -26,7 +27,17 @@ function drawCursor(){
     ctx.fill();
 }
 
+function update(){
+    ballX +=  0.5 * speedX;
+    ballY +=  speedY;
+    if (ballY < 0){
+        speedY * -1;
+        speedX * -1;
+    }
+}
+
 function loop(){
+    update();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
     drawCursor();
