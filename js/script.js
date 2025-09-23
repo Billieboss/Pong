@@ -1,12 +1,14 @@
 const canvas = document.getElementById("zoneJeu");
 const ctx = canvas.getContext("2d");
 
-const cursorWidth = 50
+const cursorWidth = canvas.width*0.15;
+const ballRadius = canvas.width*0.015;
 
 let ballX = canvas.width/2;
 let ballY = canvas.height - 20;
-let speedX = 2;
-let speedY = -2;
+let baseSpeed = 2;
+let speedX;
+let speedY;
 let rafId;
 
 let cursorX = canvas.width/2  - cursorWidth/2; // coordonnée de la raquette
@@ -15,7 +17,7 @@ function drawBall(){
     
     ctx.beginPath();
     ctx.fillStyle = "pink";
-    ctx.arc(ballX, ballY, 5, 0, Math.PI * 2);
+    ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
     ctx.fill();
 }
 
@@ -27,12 +29,20 @@ function drawCursor(){
     ctx.fill();
 }
 
+function initBallDir(){
+    let angle = (Math.random() * 120 + 30) * Math.PI /180;
+    speedX = baseSpeed * Math.cos(angle);
+    speedY = -baseSpeed * Math.sin(angle);
+}
+
 function update(){
-    ballX +=  0.5 * speedX;
-    ballY +=  speedY;
-    if (ballY < 0){
-        speedY * -1;
-        speedX * -1;
+    ballX += speedX;
+    ballY += speedY;
+    if ((ballY - ballRadius/2<=0)||(ballY + ballRadius/2 >= canvas.height)||(ballY == canvas.height-10 && (ballX < cursorX-cursorWidth/2 && ballX > cursorX-cursorWidth/2))){
+        speedY = - speedY;
+    }
+    if((ballX - ballRadius/2<=0)||(ballX + ballRadius/2 >= canvas.width)){
+        speedX = - speedX;
     }
 }
 
@@ -44,4 +54,5 @@ function loop(){
     rafId = requestAnimationFrame(loop);
 }
 
+initBallDir();
 loop();
