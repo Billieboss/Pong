@@ -16,7 +16,6 @@
     margin-bottom: 20px;
     justify-content: space-around;
     display: flex;
-
 }
 
 button{
@@ -25,7 +24,11 @@ button{
     cursor: pointer;
     display: inline;
     margin: auto;
+    display: flex;
     background-color: antiquewhite;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
 
+p{
+    text-align: center;
+}
