@@ -2,6 +2,8 @@ const canvas = document.getElementById("zoneJeu");
 const ctx = canvas.getContext("2d");
 const initButton = document.getElementById("newGame-btn");
 const scoreDisplay = document.getElementById("score");
+const gauche = document.getElementById("gauche");
+const droite = document.getElementById("droite");
 
 const cursorWidth = canvas.width*0.15;
 const ballRadius = canvas.width*0.015;
