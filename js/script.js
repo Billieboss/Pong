@@ -72,6 +72,23 @@ function updateScore(){
     score++;
 }
 
+//Raquette 
+document.addEventListener('keydown', (e) =>{
+    switch(e.key){
+        case "ArrowLeft":
+            if(cursorX > 0) cursorX -= baseSpeed;
+            break;
+
+        case "ArrowRight":
+            if(cursorX + cursorWidth < canvas.width) cursorX += baseSpeed;
+            break;
+        
+        default:
+            break;
+    }
+    redrawAll();
+})
+
 initButton.addEventListener('click', () =>{
     clearInterval(intervalScore);
     score = 0;
