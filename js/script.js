@@ -46,7 +46,8 @@ function redrawAll(){
     drawCursor();
 }
 
-function initBall(){
+function init(){
+    cursorX = canvas.width/2  - cursorWidth/2;
     ballX = canvas.width/2;
     ballY = canvas.height - 20;
     speedX = 0;
@@ -65,14 +66,14 @@ function update(){
     
     if( (ballX - ballRadius<=0)
         ||(ballX + ballRadius >= canvas.width)){
-            speedX = - speedX;
+            speedX = - 1.05 * speedX;
     }
 
     if(
         ballY + ballRadius >= cursorY + 2.5 &&
         ballX + ballRadius >= cursorX &&
         ballX <= cursorX + cursorWidth){
-            speedY = -speedY;
+            speedY = - 1.05 * speedY;
         }
 
 
@@ -136,12 +137,12 @@ document.addEventListener('keyup', (e) =>{
 });
 
 initButton.addEventListener('click', () =>{
-    rafId = 0;
+    cancelAnimationFrame(rafId);
     clearInterval(intervalScore);
     score = 0;
     updateScore();
     intervalScore = setInterval(updateScore, 1000);
-    initBall();
+    init();
     loop();   
 });
 
