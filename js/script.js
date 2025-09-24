@@ -36,6 +36,12 @@ function drawCursor(){
     ctx.fill();
 }
 
+function redrawAll(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    drawCursor();
+}
+
 function initBallDir(){
     let angle = (Math.random() * 120 + 30) * Math.PI /180;
     speedX = baseSpeed * Math.cos(angle);
@@ -60,9 +66,7 @@ function update(){
 
 function loop(){
     update();
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBall();
-    drawCursor();
+    redrawAll();
     rafId = requestAnimationFrame(loop);
 
 }
