@@ -93,6 +93,14 @@ document.addEventListener('keydown', (e) =>{
     redrawAll();
 })
 
+//Essaies boutons tactiles
+let moveLeft = false;
+let moveRight = false;
+gauche.addEventListener("touchstart", () => moveLeft = true);
+gauche.addEventListener("touchend", () => moveLeft = false);
+droite.addEventListener("touchstart", () => moveRight = true);
+droite.addEventListener("touchend", () => moveRight = false);
+
 initButton.addEventListener('click', () =>{
     clearInterval(intervalScore);
     score = 0;
