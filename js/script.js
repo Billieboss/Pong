@@ -18,10 +18,9 @@ let intervalScore;
 
 
 const cursorY = canvas.height -10;
-let cursorX = canvas.width/2  - cursorWidth/2; // coordonnée de la raquette
+let cursorX = canvas.width/2  - cursorWidth/2; 
 
-function drawBall(){
-    
+function drawBall(){    
     ctx.beginPath();
     ctx.fillStyle = "pink";
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
@@ -42,7 +41,11 @@ function redrawAll(){
     drawCursor();
 }
 
-function initBallDir(){
+function initBall(){
+    ballX = canvas.width/2;
+    ballY = canvas.height - 20;
+    speedX = 0;
+    speedY = 0;
     let angle = (Math.random() * 120 + 30) * Math.PI /180;
     speedX = baseSpeed * Math.cos(angle);
     speedY = -baseSpeed * Math.sin(angle);
@@ -51,13 +54,24 @@ function initBallDir(){
 function update(){
     ballX += speedX;
     ballY += speedY;
-    if ((ballY - ballRadius/2<=0)||(ballY == canvas.height-10 && (ballX < cursorX-cursorWidth/2 && ballX > cursorX+cursorWidth/2))){
-        speedY = - 1.01*speedY;
+    if (ballY - ballRadius<=0){
+        speedY = - speedY;
     }
-    if((ballX - ballRadius/2<=0)||(ballX + ballRadius/2 >= canvas.width)){
-        speedX = - 1.01*speedX;
+    
+    if( (ballX - ballRadius<=0)
+        ||(ballX + ballRadius >= canvas.width)){
+            speedX = - speedX;
     }
-    if(ballY + ballRadius/2 >= canvas.height){
+
+    if(
+        ballY + ballRadius >= cursorY + 2.5 &&
+        ballX + ballRadius >= cursorX &&
+        ballX <= cursorX + cursorWidth){
+            speedY = -speedY;
+        }
+
+
+    if(ballY + ballRadius >= canvas.height){
         gameOver();
         exit;
     }
@@ -75,16 +89,15 @@ function updateScore(){
     scoreDisplay.textContent = "Score : "+score+" s";
     score++;
 }
-
-//Raquette 
+ 
 document.addEventListener('keydown', (e) =>{
     switch(e.key){
         case "ArrowLeft":
-            if(cursorX > 0) cursorX -= baseSpeed;
+            if(cursorX > 0) cursorX -= 15;
             break;
 
         case "ArrowRight":
-            if(cursorX + cursorWidth < canvas.width) cursorX += baseSpeed;
+            if(cursorX + cursorWidth < canvas.width) cursorX += 15;
             break;
         
         default:
@@ -94,15 +107,12 @@ document.addEventListener('keydown', (e) =>{
 })
 
 initButton.addEventListener('click', () =>{
+    rafId = 0;
     clearInterval(intervalScore);
     score = 0;
     updateScore();
     intervalScore = setInterval(updateScore, 1000);
-    ballX = canvas.width/2;
-    ballY = canvas.height - 20;
-    speedX = 0;
-    speedY = 0;
-    initBallDir();
+    initBall();
     loop();   
 });
 
@@ -118,4 +128,6 @@ function gameOver(){
     score -= 1;
     ctx.fillText('Votre score : '+ score , canvas.width/2, canvas.height/1.5);
 }
+
+redrawAll();
 
