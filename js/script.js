@@ -86,10 +86,10 @@ function update(){
 
 function updateCursor(){
     if(moveLeft && cursorX > 0){
-        cursorX -= 5
+        cursorX -= 5;
     }
     if(moveRight&& cursorX + cursorWidth < canvas.width){
-        cursorX += 5
+        cursorX += 5;
     }
 }
 
