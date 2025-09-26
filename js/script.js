@@ -4,13 +4,15 @@ const initButton = document.getElementById("newGame-btn");
 const scoreDisplay = document.getElementById("score");
 const left = document.getElementById("gauche");
 const right = document.getElementById("droite");
+const locStorage = localStorage;
+locStorage.setItem("highestScore", 0 );
 
 const cursorWidth = canvas.width*0.15;
 const ballRadius = canvas.width*0.015;
 
 let ballX = canvas.width/2;
 let ballY = canvas.height - 20;
-let baseSpeed = 2;
+let baseSpeed = 1;
 let speedX;
 let speedY;
 let rafId;
@@ -61,13 +63,13 @@ function update(){
     ballX += speedX;
     ballY += speedY;
     if (ballY - ballRadius<=0){
-            if (speedY <=5 && speedY >=-5)speedY = - speedY;
+            if (speedY <=baseSpeed*5 && speedY >=-baseSpeed*5)speedY = - speedY;
             else speedY = - 1 * speedY;
     }
     
     if( (ballX - ballRadius<=0)
         ||(ballX + ballRadius >= canvas.width)){
-            if (speedX <=5 && speedX >=-5)speedX = - 1.05 * speedX;
+            if (speedX <=baseSpeed*5 && speedX >=-baseSpeed*5)speedX = - 1.05 * speedX;
             else speedX = - 1 * speedX;
     }
 
@@ -75,7 +77,7 @@ function update(){
         ballY + ballRadius >= cursorY + 2.5 &&
         ballX + ballRadius >= cursorX &&
         ballX <= cursorX + cursorWidth){
-            if (speedY <=5 && speedY >=-5)speedY = - 1.05 * speedY;
+            if (speedY <=baseSpeed*5 && speedY >=-baseSpeed*5)speedY = - 1.05 * speedY;
             else speedY = - 1 * speedY;
         }
 
@@ -101,8 +103,7 @@ function loop(){
     updateCursor();
     redrawAll();
     rafId = requestAnimationFrame(loop);
-    console.log("speedX : "+speedX);
-    console.log("speedY : "+speedY);
+
 }
 
 function updateScore(){
@@ -173,6 +174,11 @@ function gameOver(){
     ctx.textAlign = 'center'; 
     score -= 1;
     ctx.fillText('Votre score : '+ score , canvas.width/2, canvas.height/1.5);
+    if(score > locStorage.getItem("highestScore")){
+        localStorage.setItem("highestScore", score);
+        ctx.fillText('Bravo ! Record battu', canvas.width/2, canvas.height/1.25);
+
+    }
 }
 
 redrawAll();
