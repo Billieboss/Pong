@@ -61,19 +61,22 @@ function update(){
     ballX += speedX;
     ballY += speedY;
     if (ballY - ballRadius<=0){
-        speedY = - speedY;
+            if (speedY <=5 && speedY >=-5)speedY = - speedY;
+            else speedY = - 1 * speedY;
     }
     
     if( (ballX - ballRadius<=0)
         ||(ballX + ballRadius >= canvas.width)){
-            speedX = - 1.05 * speedX;
+            if (speedX <=5 && speedX >=-5)speedX = - 1.05 * speedX;
+            else speedX = - 1 * speedX;
     }
 
     if(
         ballY + ballRadius >= cursorY + 2.5 &&
         ballX + ballRadius >= cursorX &&
         ballX <= cursorX + cursorWidth){
-            speedY = - 1.05 * speedY;
+            if (speedY <=5 && speedY >=-5)speedY = - 1.05 * speedY;
+            else speedY = - 1 * speedY;
         }
 
 
@@ -98,7 +101,8 @@ function loop(){
     updateCursor();
     redrawAll();
     rafId = requestAnimationFrame(loop);
-
+    console.log("speedX : "+speedX);
+    console.log("speedY : "+speedY);
 }
 
 function updateScore(){
