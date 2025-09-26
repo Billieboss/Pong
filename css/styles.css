@@ -61,7 +61,6 @@ body{
     display: block;
     margin: auto;
     margin-bottom: 20px;
-    background-color: palevioletred;
 
 }
 
@@ -102,14 +101,14 @@ h1, p{
 
 }
 
-#newGame-btn{
+.option-btn{
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 3px solid;
     padding: 0.25em 0.5em;
-    margin-bottom: 5%;
+    margin-bottom: 5px;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
     color : black;
 }
@@ -154,4 +153,76 @@ footer{
 p{
     font-size: 10px;
     font-weight: 100;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+
+}
+.overlay .contenu {
+    background-color: rgb(233, 227, 220);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-height: 80%;
+    overflow-y: auto;
+    margin:10%;
+}
+
+#div-englob{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#option-btn-div{
+    align-items: left;
+}
+
+#newgame-btn-div{
+    align-items: left;
+    margin-left: 20px
+}
+
+
+.option-btn{
+    display:inline;
+    margin-top: 10px;
+}
+
+.contenu{
+    display: flex;
+    flex-direction: column;
+}
+
+#valider-btn{
+    align-self: center;
+}
+
+.option-color{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    
+}
+
+.option-color p{
+    text-align: left;
+}
+
+input{
+    flex-shrink: 0;
+}
+
+input[type="range"]{
+  width: 80px;   
+  background: pink ;
 }

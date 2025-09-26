@@ -16,17 +16,66 @@
     <canvas id="zoneJeu" width="320" height="350">
 
     </canvas>
+
+
     <div>
-        <button id="newGame-btn">Nouvelle Partie</button>
+        <div id="div-englob">
+            <div id= "option-btn-div">
+                <button onclick="ouvrirMiniPage()" class="option-btn"><i class="fa-solid fa-gear"></i></button>
+                    <div id="option" class="overlay">
+                        <div class="contenu">
+                            <h1>Options</h1>
+                            <div id="color-pic-bg" class="option-color">
+                                <p>
+                                    Selectionner la couleur du fond :
+                                </p>
+                                <input type="color" id="background-color" name="background" value="#db7093 "/>
+                            </div>
+                            <div id="color-pic-ball" class="option-color">
+                                <p>
+                                    Selectionner la couleur de la balle :
+                                </p>
+                                <input type="color" id="ball-color" name="background" value="#FFC0CB"/>
+                            </div>
+                            <div id="color-pic-cursor" class="option-color">
+                                <p>
+                                    Selectionner la couleur de la raquette :
+                                </p>
+                                <input type="color" id="cursor-color" name="background" value="#FFC0CB"/>
+                            </div>
+
+                            <div id="slider-speed-div" class="option-color">
+                                <p>
+                                    Selectionner la vitesse de la balle :
+                                </p>
+                                <input type="range" id="speed-slider" min ="0.5" max="5" value="1" step="0.5" />
+                            </div>
+                            <button onclick="fermerMiniPage()" class="option-btn" id="valider-btn">Valider</button>
+                        </div>
+                    </div>
+            </div>
+            <div id= "newgame-btn-div">
+                <button id="newGame-btn" class="option-btn">Nouvelle Partie</button>
+            </div>
+        </div>
+        
+        
         <div id="div-score">
-            <i class="fa-solid fa-trophy"></i>
+            <i class="fa-solid fa-clock"></i>
             <p id="score">Score : 0 s</p>
+        </div>
+         <div id="div-score">
+            <i class="fa-solid fa-trophy"></i>
+            <p id="highscore">Meilleur score : 0 s</p>
         </div>
         <div class="boutons_direct">
             <button id="gauche" class="fleche-dir"><i class="fa-classic fa-arrow-left"></i></button>
             <button id="droite" class="fleche-dir"><i class="fa-classic fa-arrow-right"></i></button>
         </div>
     </div>
+
+    
+
     
 
     <footer>
