@@ -74,6 +74,14 @@ body{
     border-radius: 25%;
 }
 
+header{
+    padding: 15px;
+}
+
+h1{
+    margin-bottom:20px ;
+}
+
 h1, p{
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
@@ -82,8 +90,7 @@ h1, p{
     font-weight: 900;
     color:rgb(96, 12, 63);
     text-align: center;
-    margin: 10px;
-    padding-bottom: 10px;
+
 }
 
 #newGame-btn{
@@ -118,6 +125,7 @@ footer{
     left: 0;
     background-color:palevioletred;
     width: 100%;
+    padding:5px;
 }
 
 .credit{
@@ -126,7 +134,9 @@ footer{
     width: 100%; 
 }
 
-
+#score{
+    padding : 5px;
+}
 
 p{
     font-size: 10px;
