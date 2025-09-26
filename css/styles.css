@@ -49,12 +49,15 @@ table {
 
 body{
     padding-bottom: 20%;
+    background-color: rgb(241, 215, 222);
+
 }
 
 #zoneJeu{
-    border-color: black;
+    border-color: rgb(0, 0, 0);
     border-style: solid;
-    border-width:2px;
+    border-radius: 10px;
+    border-width:4px;
     display: block;
     margin: auto;
     margin-bottom: 20px;
@@ -71,7 +74,13 @@ body{
 }
 
 .fleche-dir{
-    border-radius: 25%;
+    border-radius: 15px;
+    border: 3px solid;
+    padding: 15px 30px;
+    margin-top:5px;
+    margin-bottom: 5%;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    color : black;
 }
 
 header{
@@ -106,14 +115,12 @@ h1, p{
 }
 
 button{
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     display: inline;
     margin: auto;
     display: flex;
     background-color: antiquewhite;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     color : black;
     border-color: black;
     
@@ -134,8 +141,14 @@ footer{
     width: 100%; 
 }
 
-#score{
-    padding : 5px;
+#div-score{
+    color : rgb(96, 12, 63);;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding : 15px;
+    font-size: 15px;
 }
 
 p{
