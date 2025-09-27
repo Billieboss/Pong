@@ -38,5 +38,4 @@ Accessible depuis l'interface du jeu, vous pouvez personnaliser :
 
 🛠️ Développé par [Milène et Camille] – Projet universitaire HTML/CSS/JS
 
-## 📁 Structure du projet
 
