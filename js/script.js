@@ -76,7 +76,10 @@ function init(){
     ballY = canvas.height - 20;
     speedX = 0;
     speedY = 0;
-    let angle = (Math.random() * 120 + 30) * Math.PI /180;
+    let angle 
+    do {
+        angle = (Math.random() * 120 + 30) * Math.PI /180;
+    } while (Math.abs(Math.cos(angle)) < 0.2); 
     speedX = baseSpeed * Math.cos(angle);
     speedY = -baseSpeed * Math.sin(angle);
 }
