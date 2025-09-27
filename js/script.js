@@ -38,6 +38,9 @@ let moveRight = false;
 let score = 0;
 let intervalScore;
 
+if(locStorage.getItem("highestScore") == null) locStorage.setItem("highestScore", 0);
+
+
 
 const cursorY = canvas.height -10;
 let cursorX = canvas.width/2  - cursorWidth/2; 
@@ -129,7 +132,7 @@ function loop(){
 function updateScore(){
     score++;
     scoreDisplay.textContent = "Score : "+score+" s";
-    if(score > locStorage.getItem("highestScore")){
+    if(score >= locStorage.getItem("highestScore")){
         highestScoreDisplay.textContent = "Meilleur score : "+score+" s";
     }
 }
