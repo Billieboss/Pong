@@ -13,10 +13,14 @@ const cursorColor = document.getElementById("cursor-color");
 const rangeSpeed = document.getElementById("speed-slider");
 
 
-locStorage.setItem("bgColor", bgColor.value);
-locStorage.setItem("ballColor", ballColor.value);
-locStorage.setItem("cursorColor", cursorColor.value);
-locStorage.setItem("baseSpeed", rangeSpeed.value);
+if(locStorage.getItem("bgColor") == null)locStorage.setItem("bgColor", bgColor.value);
+else bgColor.value = locStorage.getItem("bgColor");
+if(locStorage.getItem("ballColor") == null)locStorage.setItem("ballColor", ballColor.value);
+else ballColor.value = locStorage.getItem("ballColor");
+if(locStorage.getItem("cursorColor") == null)locStorage.setItem("cursorColor", cursorColor.value);
+else cursorColor.value = locStorage.getItem("cursorColor");
+if(locStorage.getItem("baseSpeed") == null)locStorage.setItem("baseSpeed", rangeSpeed.value);
+else rangeSpeed.value = locStorage.getItem("baseSpeed");
 
 canvas.style.backgroundColor = locStorage.getItem("bgColor");
 
