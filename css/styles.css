@@ -142,7 +142,7 @@ footer{
     width: 100%; 
 }
 
-#div-score{
+.div-score{
     color : rgb(96, 12, 63);;
     display:flex;
     justify-content: center;
