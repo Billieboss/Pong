@@ -93,7 +93,7 @@ h1{
     margin-bottom:20px ;
 }
 
-h1, p{
+h1, p, label{
     font-family: "Open Sans", sans-serif;
     font-size: 30px;
     letter-spacing: 2px;
@@ -152,7 +152,7 @@ footer{
     font-size: 15px;
 }
 
-p{
+p, label{
     font-size: 10px;
     font-weight: 100;
 }
@@ -217,7 +217,7 @@ p{
     
 }
 
-.option-color p{
+.option-color label{
     text-align: left;
 }
 

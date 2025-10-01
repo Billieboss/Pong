@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1><i class="fa-solid fa-table-tennis-paddle-ball"></i>Solo Pong<i class="fa-solid fa-table-tennis-paddle-ball fa-flip-horizontal"></i></h1>
+        <h1><span class="fa-solid fa-table-tennis-paddle-ball"></span>Solo Pong<span class="fa-solid fa-table-tennis-paddle-ball fa-flip-horizontal"></span></h1>
         <p>Joue le plus longtemps possible !</p>
     </header>
 <main>
@@ -24,34 +24,34 @@
     <div>
         <div id="div-englob">
             <div id= "option-btn-div">
-                <button onclick="ouvrirMiniPage()" class="option-btn"><i class="fa-solid fa-gear"></i></button>
+                <button onclick="ouvrirMiniPage()" class="option-btn"><span class="fa-solid fa-gear"></span></button>
                     <div id="option" class="overlay">
                         <div class="contenu">
                             <h1>Options</h1>
                             <div id="color-pic-bg" class="option-color">
-                                <p>
+                                <label for="background-color">
                                     Selectionnez la couleur du fond :
-                                </p>
-                                <input type="color" id="background-color" name="background" value="#DB7093"/>
+                                </label>
+                                <input type="color" name="background-color" id="background-color" name="background" value="#DB7093"/>
                             </div>
                             <div id="color-pic-ball" class="option-color">
-                                <p>
+                                <label for="ball-color">
                                     Selectionnez la couleur de la balle :
-                                </p>
-                                <input type="color" id="ball-color" name="background" value="#FFC0CB"/>
+                                </label>
+                                <input type="color" name="ball-color" id="ball-color" name="background" value="#FFC0CB"/>
                             </div>
                             <div id="color-pic-cursor" class="option-color">
-                                <p>
+                                <label>
                                     Selectionnez la couleur de la raquette :
-                                </p>
-                                <input type="color" id="cursor-color" name="background" value="#FFC0CB"/>
+                                </label for="cursor-color">
+                                <input type="color" name="cursor-color" id="cursor-color" name="background" value="#FFC0CB"/>
                             </div>
 
                             <div id="slider-speed-div" class="option-color">
-                                <p>
+                                <label for="speed-slider">
                                     Selectionnez la vitesse de la balle :
-                                </p>
-                                <input type="range" id="speed-slider" min ="1.5" max="6" value="2" step="0.5" />
+                                </label>
+                                <input type="range" name="speed-slider" id="speed-slider" min ="1.5" max="6" value="2" step="0.5" />
                             </div>
                             <button onclick="reinitialiserOptions()" class="option-btn" id="reinit-btn">Réinitialiser</button>
                             <button onclick="fermerMiniPage()" class="option-btn" id="valider-btn">Valider</button>
@@ -65,16 +65,16 @@
         
         
         <div class="div-score">
-            <i class="fa-solid fa-clock"></i>
+            <span class="fa-solid fa-clock"></span>
             <p id="score">Score : 0 s</p>
         </div>
          <div class="div-score">
-            <i class="fa-solid fa-trophy"></i>
+            <span class="fa-solid fa-trophy"></span>
             <p id="highscore">Meilleur score : 0 s</p>
         </div>
         <div class="boutons_direct">
-            <button id="gauche" class="fleche-dir"><i class="fa-classic fa-arrow-left"></i></button>
-            <button id="droite" class="fleche-dir"><i class="fa-classic fa-arrow-right"></i></button>
+            <button id="gauche" class="fleche-dir"><span class="fa-classic fa-arrow-left"></span></button>
+            <button id="droite" class="fleche-dir"><span class="fa-classic fa-arrow-right"></span></button>
         </div>
     </div>
 
@@ -83,7 +83,7 @@
     
 
     <footer>
-        <p><i class="fa-brands fa-github"></i>Projet à deux - JavaScript</p>
+        <p><span class="fa-brands fa-github"></span>Projet à deux - JavaScript</p>
         <div class="credit">
             <p class = "credit">Pellerin Milène</p>
             <p class = "credit">-</p>
