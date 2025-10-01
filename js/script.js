@@ -25,7 +25,6 @@ else rangeSpeed.value = locStorage.getItem("baseSpeed");
 canvas.style.backgroundColor = locStorage.getItem("bgColor");
 
 
-
 const cursorWidth = canvas.width*0.15;
 const ballRadius = canvas.width*0.015;
 
@@ -216,6 +215,18 @@ function ouvrirMiniPage() {
 }
 function fermerMiniPage() {
   document.getElementById("option").style.display = "none";
+}
+
+function reinitialiserOptions(){
+    locStorage.setItem("bgColor","#DB7093");
+    locStorage.setItem("ballColor", "#FFC0CB");
+    locStorage.setItem("cursorColor", "#FFC0CB");
+    locStorage.setItem("baseSpeed", 2);
+    canvas.style.backgroundColor = "#DB7093";
+    bgColor.value = locStorage.getItem("bgColor");
+    ballColor.value = locStorage.getItem("ballColor");
+    cursorColor.value = locStorage.getItem("cursorColor");
+    rangeSpeed.value = locStorage.getItem("baseSpeed");
 }
 
 

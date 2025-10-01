@@ -196,6 +196,7 @@ p{
 
 .option-btn{
     display:inline;
+    flex-direction: row;
     margin-top: 10px;
 }
 
